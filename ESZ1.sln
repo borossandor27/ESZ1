@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsTagdijBefizetes", "WindowsFormstagdiBefizetes\WindowsFormsTagdijBefizetes.csproj", "{7D16AC4A-5C2A-4EF6-8F1B-9074D5C48B91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sikidomok", "Sikidomok\Sikidomok.csproj", "{630FE340-6612-4EC2-A5BD-6F9699169323}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7D16AC4A-5C2A-4EF6-8F1B-9074D5C48B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D16AC4A-5C2A-4EF6-8F1B-9074D5C48B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D16AC4A-5C2A-4EF6-8F1B-9074D5C48B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630FE340-6612-4EC2-A5BD-6F9699169323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630FE340-6612-4EC2-A5BD-6F9699169323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630FE340-6612-4EC2-A5BD-6F9699169323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630FE340-6612-4EC2-A5BD-6F9699169323}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
