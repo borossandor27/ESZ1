@@ -33,6 +33,7 @@ namespace WindowsFormDolgozo
                 case "insert":
                     button_Muvelet.Text = "Új dolgozó rögzítése";
                     this.Text = "Új dolgozó adatai";
+                    textBox_Nev.Focus();
                     break;
                 case "update":
                     kivalasztottDolgozo = (Dolgozo) Program.formNyito.listBox_Dolgozok.SelectedItem;

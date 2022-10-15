@@ -32,7 +32,6 @@
             this.button_Insert = new System.Windows.Forms.Button();
             this.button_Update = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
-            this.button_Frissit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox_Dolgozok
@@ -73,30 +72,22 @@
             this.button_Delete.Text = "Dolgozó törlése";
             this.button_Delete.UseVisualStyleBackColor = true;
             // 
-            // button_Frissit
-            // 
-            this.button_Frissit.Location = new System.Drawing.Point(240, 142);
-            this.button_Frissit.Name = "button_Frissit";
-            this.button_Frissit.Size = new System.Drawing.Size(142, 37);
-            this.button_Frissit.TabIndex = 1;
-            this.button_Frissit.Text = "Listát frissít";
-            this.button_Frissit.UseVisualStyleBackColor = true;
-            this.button_Frissit.Click += new System.EventHandler(this.button_Frissit_Click);
-            // 
             // FormNyito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 220);
-            this.Controls.Add(this.button_Frissit);
             this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.button_Update);
             this.Controls.Add(this.button_Insert);
             this.Controls.Add(this.listBox_Dolgozok);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormNyito";
             this.Text = "Dolgozók nyilvántartása";
             this.Activated += new System.EventHandler(this.FormNyito_Activated);
             this.Load += new System.EventHandler(this.FormNyito_Load);
+            this.Click += new System.EventHandler(this.Kattintott);
             this.ResumeLayout(false);
 
         }
@@ -105,7 +96,6 @@
         private System.Windows.Forms.Button button_Insert;
         private System.Windows.Forms.Button button_Update;
         private System.Windows.Forms.Button button_Delete;
-        private System.Windows.Forms.Button button_Frissit;
         public System.Windows.Forms.ListBox listBox_Dolgozok;
     }
 }

@@ -38,7 +38,8 @@ namespace WindowsFormDolgozo
 
         private void FormNyito_Activated(object sender, EventArgs e)
         {
-            //MessageBox.Show("Fókusz");
+            listBoxUpdate();
+            
         }
 
         private void button_Frissit_Click(object sender, EventArgs e)
@@ -55,6 +56,11 @@ namespace WindowsFormDolgozo
             }
             Form_Dolgozo form_Dolgozo = new Form_Dolgozo( "update");
             form_Dolgozo.ShowDialog();
+        }
+
+        private void Kattintott(object sender, EventArgs e)
+        {
+            MessageBox.Show("valahova a Formra kattintott");
         }
     }
 }
