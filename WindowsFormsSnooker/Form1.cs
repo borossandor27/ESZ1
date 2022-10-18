@@ -87,6 +87,12 @@ namespace WindowsFormsSnooker
             dataGridView_Versenyzok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Versenyzok.MultiSelect = false;
             dataGridView_Versenyzok.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_Versenyzok.EnableHeadersVisualStyles = false;
+            dataGridView_Versenyzok.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView_Versenyzok.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 97, 0);
+            dataGridView_Versenyzok.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView_Versenyzok.ColumnHeadersDefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
+            dataGridView_Versenyzok.RowTemplate.DefaultCellStyle.Padding = new Padding(0, 1, 0, 1);
 
             //-- Oszlopok tulajdonságainak a beállítása
             //-- 1. oszlop
@@ -125,8 +131,10 @@ namespace WindowsFormsSnooker
             {
                 col_Nyeremeny.Name = "Nyeremeny"; //-- cella azonosításhoz
                 col_Nyeremeny.HeaderText = "Nyeremény"; //-- felhasználónak jelezzük a tartalmat
+                col_Nyeremeny.ValueType = typeof(int);
                 col_Nyeremeny.CellTemplate = new DataGridViewTextBoxCell();
                 col_Nyeremeny.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                col_Nyeremeny.DefaultCellStyle.Format = "c0"; //-- currency 0 tizedessel
             }
             dataGridView_Versenyzok.Columns.Add(col_Nyeremeny);
 
@@ -136,6 +144,10 @@ namespace WindowsFormsSnooker
         private void dataGridView_Versenyzok_SelectionChanged(object sender, EventArgs e)
         {
             //-- belekattintott a táblázatba
+            if (dataGridView_Versenyzok.SelectedRows.Count==0)
+            {
+                return;
+            }
             DataGridViewRow kivalasztottSor = dataGridView_Versenyzok.SelectedRows[0];
             if (kivalasztottSor.Cells["helyezes"].Value != null)
             {
@@ -145,6 +157,49 @@ namespace WindowsFormsSnooker
                 numericUpDown_Nyeremeny.Value = decimal.Parse(kivalasztottSor.Cells["nyeremeny"].Value.ToString());
 
             }
+        }
+
+        private void button_Update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                command.Parameters.Clear();
+                //-- parancsot meghatározzuk ---
+                command.CommandText = "UPDATE `snooker` SET `Nyeremeny`=@osszeg WHERE `Helyezes`= @id;";
+                //-- végrehajtáshoz szükséges adatokat átadjuk ---
+                command.Parameters.AddWithValue("@id", textBox_helyezes.Text);
+                decimal nyeremeny = numericUpDown_Nyeremeny.Value;
+                command.Parameters.AddWithValue("@osszeg", nyeremeny.ToString());
+                if (command.ExecuteNonQuery()==1)
+                {
+                    //-- visszajelzés a felhasználónak -----------
+                    MessageBox.Show("A nyeremény módosítása megtörtént!");
+                    textBox_helyezes.Text = "";
+                    textBoxNev.Text = "";
+                    comboBox_Orszag.Text = "";
+                    numericUpDown_Nyeremeny.Value = numericUpDown_Nyeremeny.Minimum;
+                }
+                else
+                {
+                    MessageBox.Show("Sikertelen!");
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            VersenyzokBeolvasasa();
+            AdattablatFrissit();
+        }
+        /***
+         * Fejléc cellára kattintva az adott oszlop tartalma alapján sorba rendezi a táblázatot
+         */
+        private void dataGridView_Versenyzok_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.dataGridView_Versenyzok.Sort(this.dataGridView_Versenyzok.Columns[e.ColumnIndex], ListSortDirection.Ascending);
         }
     }
 }
