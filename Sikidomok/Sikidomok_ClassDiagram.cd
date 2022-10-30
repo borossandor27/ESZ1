@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Sikidomok.Haromszog">
+    <Position X="0.5" Y="3.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAEBAAEAAgABAAAAA=</HashCode>
+      <FileName>Haromszog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sikidomok.Kor">
+    <Position X="5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAYAAAAEAAAAAAAAAEAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Kor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sikidomok.Sikidom">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAgAAAAEAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Sikidom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sikidomok.Teglalap">
+    <Position X="8.25" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAgABAAAAA=</HashCode>
+      <FileName>Teglalap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
